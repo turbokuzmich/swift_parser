@@ -9,7 +9,7 @@ for i in 1..<3 {
     group.enter()
 
     let serial = DispatchQueue(label: "com.parser.serial.\(i)", qos: .userInitiated, attributes: [], autoreleaseFrequency: .inherit, target: queue)
-    let scheduler = SerialDispatchQueueScheduler(queue: serial, internalSerialQueueName: "com.parser.serial.\(i)")
+    let scheduler = ConcurrentDispatchQueueScheduler(queue: serial)
 
     _ = Observable.of(1, 2, 3).observeOn(scheduler).map { int -> Int in
         sleep(UInt32(i))

@@ -1,4 +1,5 @@
 import RxSwift
+import Foundation
 import Dispatch
 
 let queue = DispatchQueue(label: "com.parser.concurrent", qos: .userInitiated, attributes: [.concurrent])
